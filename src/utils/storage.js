@@ -1,9 +1,17 @@
 const KEY = 'lct-studio-state';
 
 export function loadState() {
-  try { return JSON.parse(localStorage.getItem(KEY)) ?? {}; } catch { return {}; }
+  try {
+    return JSON.parse(localStorage.getItem(KEY)) ?? {};
+  } catch {
+    return {};
+  }
 }
 
 export function saveState(next) {
-  localStorage.setItem(KEY, JSON.stringify(next));
+  try {
+    localStorage.setItem(KEY, JSON.stringify(next));
+  } catch {
+    // LocalStorage can fail in private browsing or locked-down environments.
+  }
 }
