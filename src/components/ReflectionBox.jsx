@@ -1,0 +1,1 @@
+export default function ReflectionBox({ value, onChange }) { return <textarea value={value} onChange={(e)=>onChange(e.target.value)} className="w-full min-h-24 p-3 rounded-xl border" placeholder="Write a short reflection..." />; }
